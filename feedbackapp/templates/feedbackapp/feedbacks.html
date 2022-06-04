@@ -1,0 +1,27 @@
+{% extends 'feedbackapp/base.html' %}
+
+
+{% block content %}
+<div class="container">
+	<h2>Past Feedbacks</h2>
+	{% if feedbacks|length < 1 %}
+		<p class="lead mt-3">There is no Feedback</p>
+	{% else %}
+		{% for item in feedbacks %}
+		<div class="card my-3 w-75">
+			<div class="card-body text-center">
+				{{item.feedback}}
+			</div>
+			<div class="text-secondary mt-2">
+				By {{item.name}} on {{item.date_added}}
+			</div>
+			
+		</div>
+	{% endfor %}
+
+{% endif %}
+	
+</div>
+
+
+{% endblock %}
